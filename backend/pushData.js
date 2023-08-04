@@ -1,14 +1,12 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
+const DashboardData = require('./schema');
 
 // Replace the following connection string with your MongoDB connection URL
 const mongoURL = 'mongodb://localhost:27017/dashboarddb';
 
 // Path to the JSON file
 const jsonFilePath = './jsondata.json';
-
-// Import the DashboardData model from server.js
-const { DashboardData } = require('./server');
 
 async function pushDataFromFile() {
   try {
@@ -27,7 +25,7 @@ async function pushDataFromFile() {
 
     // Insert the array of JSON objects
     const result = await DashboardData.insertMany(dataArray);
-    console.log(`${result.length} documents inserted.`);
+    console.log(`${result.insertedCount} documents inserted.`);
   } catch (error) {
     console.error('Error: ', error);
   }
@@ -35,3 +33,4 @@ async function pushDataFromFile() {
 
 // Call the function to push data from the file
 pushDataFromFile();
+
