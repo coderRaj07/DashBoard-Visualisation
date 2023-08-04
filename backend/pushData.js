@@ -25,10 +25,13 @@ async function pushDataFromFile() {
 
     // Insert the array of JSON objects
     const result = await DashboardData.insertMany(dataArray);
-    console.log(`${result.length} documents inserted.`);
+    console.log(`${result} documents`);
   } catch (error) {
     console.error('Error: ', error);
-  }
+  } finally {
+      // Disconnect from MongoDB
+      await mongoose.disconnect();
+    }
 }
 
 // Call the function to push data from the file
