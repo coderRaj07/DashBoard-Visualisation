@@ -25,7 +25,7 @@ async function pushDataFromFile() {
 
     // Insert the array of JSON objects
     const result = await DashboardData.insertMany(dataArray);
-    console.log(`${result.insertedCount} documents inserted.`);
+    console.log(`${result.length} documents inserted.`);
   } catch (error) {
     console.error('Error: ', error);
   }
