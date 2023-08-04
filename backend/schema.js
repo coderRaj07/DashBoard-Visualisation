@@ -2,14 +2,23 @@
 const mongoose = require('mongoose');
 
 const dashboardDataSchema = new mongoose.Schema({
-  Intensity: String,
-  Likelihood: String,
-  Relevance: String,
-  Year: String,
-  Country: String,
-  Topics: String,
-  Region: String,
-  City: String,
+  end_year: String,
+  intensity: Number,
+  sector: String,
+  topic: String,
+  insight: String,
+  url: String,
+  region: String,
+  start_year: String,
+  impact: String,
+  added: String,
+  published: String,
+  country: String,
+  relevance: Number,
+  pestle: String,
+  source: String,
+  title: String,
+  likelihood: Number,
 });
 
 module.exports = mongoose.model('DashboardData', dashboardDataSchema);
